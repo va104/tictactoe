@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,131 @@
     <link rel="stylesheet" href="stylesheet.css">
     <script src="script.js"></script>
     <title>Tic Tac Toe</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 </head>
+
 <body>
-    
+    <div class="winner-player d-none" id="undecided-winner">
+        <div class="player-panel d-flex container-game-over-score">
+            <div class="player game-over-score">
+                <img src="./img/circle.png" alt=""><span id="game-over-circle-0"></span>
+            </div>
+            <div class="player game-over-score">
+                <img src="./img/cross.png" alt=""><span id="game-over-cross-0"></span>
+            </div>
+        </div>
+        <div>
+            <img src="./img/cross.png" alt="">
+            <img src="./img/circle.png" alt="">
+        </div>
+        <b>UNENTSCHIEDEN</b>
+        <button class="restart-btn" onclick="restart()">Restart</button>
+    </div>
+    <div class="winner-player d-none" id="winner-player-circle">
+        <div class="player-panel d-flex container-game-over-score">
+            <div class="player game-over-score">
+                <img src="./img/circle.png" alt=""><span id="game-over-circle-1"></span>
+            </div>
+            <div class="player game-over-score">
+                <img src="./img/cross.png" alt=""><span id="game-over-cross-1"></span>
+            </div>
+        </div>
+        <img src="./img/circle.png" alt="">
+        <b>GEWONNEN</b>
+        <button class="restart-btn" onclick="restart()">Restart</button>
+    </div>
+    <div class="winner-player d-none" id="winner-player-cross">
+        <div class="player-panel d-flex container-game-over-score">
+            <div class="player game-over-score">
+                <img src="./img/circle.png" alt=""><span id="game-over-circle-2"></span>
+            </div>
+            <div class="player game-over-score">
+                <img src="./img/cross.png" alt=""><span id="game-over-cross-2"></span></span>
+            </div>
+        </div>
+        <img src="./img/cross.png" alt="">
+        <b>GEWONNEN</b>
+        <button class="restart-btn" onclick="restart()">Restart</button>
+    </div>
+    <div class="player-panel d-flex">
+        <div id="player-1" class="player" style="border-bottom: 6px solid rgb(80, 80, 68);">
+            <img src="./img/circle.png" alt=""><span id="player-circle">-</span>
+        </div>
+        <div id="player-2" class="player player-inactive">
+            <img src="./img/cross.png" alt=""><span id="player-cross">-</span>
+        </div>
+    </div>
+    <div class="active-player">
+        <img class="d-none" id="small-circle" src="./img/circle.png" alt="">
+        <img class="d-none" id="small-cross" src="./img/cross.png" alt="">
+        <span id="active-player">Beginne mit dem Spiel</span>
+    </div>
+    <!-- <div class="horizontal-line"></div> -->
+    <!-- Kurzschreibweise: table>tr>td*3 -->
+    <div class="main-wrapper">
+        <table>
+            <tr>
+                <td onclick="fillShape(0)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-0" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-0" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+                <td onclick="fillShape(1)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-1" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-1" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+                <td onclick="fillShape(2)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-2" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-2" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(3)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-3" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-3" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+                <td onclick="fillShape(4)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-4" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-4" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+                <td onclick="fillShape(5)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-5" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-5" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(6)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-6" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-6" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+                <td onclick="fillShape(7)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-7" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-7" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+                <td onclick="fillShape(8)">
+                    <div class="d-flex d-flex-jc-c d-flex-ai-c">
+                        <img id="circle-8" class="shape d-none" src="./img/circle.png" alt="">
+                        <img id="cross-8" class="shape d-none" src="./img/cross.png" alt="">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
+
 </html>

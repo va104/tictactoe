@@ -1,0 +1,193 @@
+/* Spieler A:  333d29*/
+/* Spieler B:  ddbea9*/
+/* Hintergrund:  b7b7a4*/
+/* Trennlinien:  a5a58d*/
+
+body {
+    background-color: #d6d6c4;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-wrapper{
+    margin-top: 32px;
+}
+
+tr {
+    width: 399px;
+}
+
+td{
+    position: relative;
+    width: clamp(100px, 10vw, 150px);
+    height: clamp(100px, 10vw, 150px);
+    border: 7px solid rgba(114, 114, 97, 0.7);
+    cursor: pointer;
+}
+
+td:hover{
+    background-color: rgba(165, 165, 141, 0.7);
+    /* filter: blur(5px) */
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tr:first-child td{
+    border-top: 0;
+}
+
+tr td:first-child{
+    border-left: 0;
+}
+
+tr td:last-child{
+    border-right: 0;
+}
+
+tr:last-child td{
+    border-bottom: 0;
+}
+
+.shape{
+    position: absolute;
+    height: clamp(60px, 60%, 80px);
+    width: clamp(60px, 60%, 80px);
+}
+
+.d-flex{
+    display: flex;
+}
+
+.d-flex-jc-c{
+    justify-content: center;
+}
+
+.d-flex-ai-c{
+    align-items: center;
+}
+
+.d-none{
+    display: none !important;
+}
+
+.player{
+ background-color: rgb(242, 235, 211);   
+ padding: 15px;
+ border-radius: 5px;
+ width: clamp(100px, 20vw, 180px);
+}
+
+.player-panel{
+    font-size: 2rem;
+}
+
+.player-panel img{
+    margin-right: 16px;
+    height: clamp(30px, 5vw, 45px);
+}
+
+.player-panel div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 16px 0px 16px;
+}
+
+.player-inactive{
+    opacity: 0.5;
+}
+
+.horizontal-line{
+    height: 10px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.winner-player{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d6d6c4;
+    z-index: 2;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+.winner-player img{
+    width: 80px;
+    height: 80px;
+}
+
+.winner-player b{
+    font-size: 3rem;
+    margin-top: 15px;
+    color: rgb(71, 71, 71);
+}
+
+.container-game-over-score{
+    margin-bottom: 25px;
+}
+
+.game-over-score img{
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes zoomIn {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.restart-btn{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 2;
+    background-color: rgb(242, 235, 211);
+    color: rgb(71, 71, 71);
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.restart-btn:hover{
+    background-color: rgba(242, 235, 211, 0.5);
+}
+
+.active-player{
+    color: rgb(71, 71, 71);
+    font-size: 1.3rem;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.active-player img{
+    height: 25px;
+    width: 25px;
+    margin-right: 7px;
+}
+
+@media (max-width: 450px){
+    .winner-player b{
+        font-size: 1.7rem;
+    }
+    
+}
